@@ -22,6 +22,7 @@ const useWeather = () => {
 
   const handleFormSubmit = (event, query) => {
     event.preventDefault();
+    console.log(query);
     fetchWeather(query);
   };
 

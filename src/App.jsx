@@ -1,16 +1,11 @@
-import './App.css'
-import Search from './components/Search'
-import WeatherCard from './components/WeatherCard'
-
-
+import WeatherCard from "./components/WeatherCard"
+import styles from "./styles/globals.module.css"
 
 function App() {
-
   return (
-    <>
-      <Search />
+    <div className={styles.main_wrapper}>
       <WeatherCard />
-    </>
+    </div>
   )
 }
 
