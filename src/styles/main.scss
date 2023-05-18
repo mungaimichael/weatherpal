@@ -1,0 +1,102 @@
+@import "./_mixins";
+@import "./_variables";
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.container {
+    @include dimensions(100vh, 100%);
+    @include flex(center, center);
+    font-family: $primary-font;
+}
+
+.main-wrapper {
+    @include dimensions(80%, 80%);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 30px;
+}
+
+.weather-card {
+    @include dimensions(100%, 35%);
+    @include flex(flex-start, space-around);
+    flex-direction: column;
+    margin: 0 2rem;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 30px;
+
+    form {
+        @include dimensions(5%, 90%);
+        @include flex(center, center);
+        margin: 2rem auto;
+        border-radius: 25px;
+        border: 1px solid black;
+
+        .inputs {
+            @include dimensions(100%, 100%);
+
+            @include flex(center, center);
+            position: relative;
+
+            input {
+                @include flex(center, center);
+                @include dimensions(100%, 100%);
+                padding: 1.2rem;
+                font-size: 20px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                font-family: $primary-font;
+                border: 0;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            a {
+                @include dimensions(100%, 10%);
+                @include flex(center, center);
+                background: transparent;
+                position: absolute;
+                right: 10px;
+                img {
+                    color: rgb(255, 0, 0);
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .weather {
+        flex: 1;
+        padding: 2rem;
+        @include flex(space-around, start);
+        flex-direction: column;
+
+        img {
+            @include dimensions(auto, 100%);
+        }
+        span {
+            font-size: 2rem;
+        }
+        span#temp {
+            font-size: 6rem;
+            font-weight: 900;
+        }
+    }
+}
+
+.week-forecast {
+    flex: 1;
+    background: cyan;
+    padding: 0.5rem;
+    border-radius: 30px;
+}
