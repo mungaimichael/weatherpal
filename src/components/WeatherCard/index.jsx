@@ -1,15 +1,20 @@
 import { useState } from "react";
 import "../../styles/main.css"
+import useWeather from "../../hooks/useWeather";
+
+import CurrentLocationWeather from "../CurrentLocationWeather"
 
 
 const index = () => {
+
+    const { fetchWeather, data } = useWeather();
 
     const [query, setQuery] = useState('');
     return (
         <>
 
             <div className="weather-card" >
-                <form
+                <form onSubmit={e => e.preventDefault()}
                 >
                     <div className="inputs">
                         <input
@@ -22,30 +27,16 @@ const index = () => {
                         <a type="submit"
                             onClick={(e) => {
                                 e.preventDefault();
+                                fetchWeather(query);
                             }}
 
                         >
-                            <img src="/media/search.png" alt="search icon" />
+                            <img src="/media/search.png" alt="" />
                         </a>
 
                     </div>
                 </form>
-
-                <div className="weather">
-                    <img src="/media/5.png" alt="weather icon" />
-                    <span id="temp" >
-                        22C
-                    </span>
-                    <span>
-                        Monday, May 8th
-                    </span>
-                    <span>
-                        Mostly Cloudy
-                    </span>
-                    <span>
-                        Limuru
-                    </span>
-                </div>
+                <CurrentLocationWeather data={data} />
             </div>
 
         </>

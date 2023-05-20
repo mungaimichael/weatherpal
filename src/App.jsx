@@ -1,10 +1,15 @@
 import WeatherCard from "./components/WeatherCard"
-import styles from "./styles/globals.module.css"
+import WeekForecast from "./components/WeekForecast"
+
 
 function App() {
   return (
-    <div className={styles.main_wrapper}>
-      <WeatherCard />
+    <div className="container" >
+
+      <div className="main-wrapper">
+        <WeatherCard />
+        <WeekForecast />
+      </div>
     </div>
   )
 }

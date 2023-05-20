@@ -24,7 +24,7 @@
 }
 
 .weather-card {
-    @include dimensions(100%, 35%);
+    @include dimensions(100%, 25%);
     @include flex(flex-start, space-around);
     flex-direction: column;
     margin: 0 2rem;
@@ -80,7 +80,6 @@
         padding: 2rem;
         @include flex(space-around, start);
         flex-direction: column;
-
         img {
             @include dimensions(auto, 100%);
         }
@@ -95,8 +94,17 @@
 }
 
 .week-forecast {
-    flex: 1;
-    background: cyan;
     padding: 0.5rem;
     border-radius: 30px;
+    @include flex(center, space-around);
+    @include dimensions(100%, 100%);
+    max-width: 100%;
+    flex: 2;
+    flex-wrap: wrap;
+
+    // .days-forecast {
+    //     @include dimensions(40%, 25%);
+    //     background: black;
+    //     margin: 1rem 2rem;
+    // }
 }

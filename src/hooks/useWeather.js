@@ -10,7 +10,7 @@ const useWeather = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=150b32efaedb1500b12bde03abc588dd`
+        `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=150b32efaedb1500b12bde03abc588dd&units=metric`
       );
       setData(response.data);
     } catch (err) {
@@ -20,13 +20,7 @@ const useWeather = () => {
     }
   };
 
-  const handleFormSubmit = (event, query) => {
-    event.preventDefault();
-    console.log(query);
-    fetchWeather(query);
-  };
-
-  return { data, error, loading, handleFormSubmit };
+  return { data, error, loading, fetchWeather };
 };
 
 export default useWeather;
